@@ -1,0 +1,34 @@
+{% extends 'test/base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container">
+
+  <h2>User: {{ reader.name }}</h2>
+  <hr>
+  <h3> Books: </h3>
+  <hr>
+  <ul>
+    {% for book in books %}
+      <li><a href="{% url 'edit_book' book.id %}">{{book.title}}</a></li>
+    {% empty %}
+      <p>The user has no books</p>
+    {% endfor %}
+  </ul>
+
+  <hr>
+  <h3 align='center'> Add new book </h3>
+  <hr>
+  <form method='post'>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button name="submit" class='btn btn-primary'>Add</button>
+    {% endbuttons %}
+  </form>
+
+{% buttons %}
+<a href="{% url 'users' %}"><button name='submit'>Back to users</button></a>
+{% endbuttons %}
+
+</div>
+{% endblock content %}
