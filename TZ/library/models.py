@@ -1,5 +1,6 @@
 from django.db import models
-
+        
+#Модель пользователя
 class User(models.Model):
     name = models.CharField(max_length=50)
     id_passport = models.PositiveIntegerField()
@@ -9,6 +10,7 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+#Модель книги
 class Book(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=50)

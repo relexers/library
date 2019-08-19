@@ -12,9 +12,8 @@ urlpatterns = [
     path('', ListAddUser.as_view(), name = 'users' ),
     path('reader/<reader_id>', UserView.as_view(), name='reader'),
     path('book/<book_id>', EditBookDetail.as_view(), name = 'edit_book'),
-
-
-    #path('', include(router.urls)),
+#API urls
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 ]
